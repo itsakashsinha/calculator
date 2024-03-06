@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        }
+        input[type="button"] {
+            width: 100%;
+            padding: 20px 40px;
+            background-color: rgba(46, 45, 26, 0.945);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 20px 1px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            border: 2px solid black;
+        }
+
+        input[type="button"]:hover{
+            background-color: rgb(150, 161, 128);
+        }
+        .calculator {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 800px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <table class="calculator">
+        <tr>
+            <td colspan="4">
+                <input type="text" id="result" placeholder="Let's do the calculations :)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="AC" id="btn" onclick="clr()">
+            </td>
+            <td>
+                <input type="button" value="<- " id="btn" onclick="back()">
+            </td>
+            <td>
+                <input type="button" value="C " id="btn" onclick="clr()">
+            </td>
+            <td>
+                <input type="button" value="/" id="btn" onclick="display('/')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="7" id="btn" onclick="display('7')">
+            </td>
+            <td>
+                <input type="button" value="8" id="btn" onclick="display('8')">
+            </td>
+            <td>
+                <input type="button" value="9" id="btn" onclick="display('9')">
+            </td>
+            <td>
+                <input type="button" value="* " id="btn" onclick="display('*')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="4" id="btn" onclick="display('4')">
+            </td>
+            <td>
+                <input type="button" value="5" id="btn" onclick="display('5')">
+            </td>
+            <td>
+                <input type="button" value="6" id="btn" onclick="display('6')">
+            </td>
+            <td>
+                <input type="button" value="- " id="btn" onclick="display('-')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="1" id="btn" onclick="display('1')">
+            </td>
+            <td>
+                <input type="button" value="2" id="btn" onclick="display('2')">
+            </td>
+            <td>
+                <input type="button" value="3" id="btn" onclick="display('3')">
+            </td>
+            <td>
+                <input type="button" value="+" id="btn" onclick="display('+')">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="00" id="btn" onclick="display('00')">
+            </td>
+            <td>
+                <input type="button" value="0 " id="btn" onclick="display('0')">
+            </td>
+            <td>
+                <input type="button" value=". " id="btn" onclick="display('.')">
+            </td>
+            <td>
+                <input type="button" value="=" id="btn" onclick="calc()">
+            </td>
+        </tr>
+
+    </table>
+</body>
+<script>
+    const math = require('mathjs');
+    function display(val) {
+        document.getElementById('result').value += val;
+    }
+    function calc() {
+        let x = document.getElementById("result");
+        let res = eval(x.value);
+        x.value = res;
+    }
+    function clr() {
+        let inp = document.getElementById("result");
+        inp.value = '';
+    }
+
+    function back() {
+        let ev = document.getElementById('result');
+        ev.value = ev.value.slice(0, -1);
+    }
+
+</script>
+
+</html>
